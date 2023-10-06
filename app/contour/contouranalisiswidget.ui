@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ContourAnalisisWidget</class>
+ <widget class="QMainWindow" name="ContourAnalisisWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1514</width>
+    <height>990</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QCustomPlot" name="plot" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0" colspan="2">
+       <widget class="MeasurementTreeWidget" name="distmTree">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="dragEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::InternalMove</enum>
+        </property>
+        <attribute name="headerCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string notr="true">ГРУППА</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ИЗМЕРЕНИЕ</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item row="5" column="0" colspan="2">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>Параметры</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Длина консоли:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="tipLengthSpinBox_3">
+             <property name="suffix">
+              <string> нм</string>
+             </property>
+             <property name="decimals">
+              <number>6</number>
+             </property>
+             <property name="minimum">
+              <double>200000.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>500000.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="headLengthLable">
+             <property name="text">
+              <string>Длина наконечника:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="headLengthSpinBox_3">
+             <property name="wrapping">
+              <bool>false</bool>
+             </property>
+             <property name="suffix">
+              <string> нм</string>
+             </property>
+             <property name="decimals">
+              <number>6</number>
+             </property>
+             <property name="maximum">
+              <double>9999999999999.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLabel" name="headRadiusLable">
+             <property name="text">
+              <string>Радиус наконечника:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="headRadiusSpinBox_3">
+             <property name="suffix">
+              <string> нм</string>
+             </property>
+             <property name="decimals">
+              <number>6</number>
+             </property>
+             <property name="maximum">
+              <double>9999999999.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Угол горизонта:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDoubleSpinBox" name="headHorizonAngleSpinBox_3">
+             <property name="suffix">
+              <string> °</string>
+             </property>
+             <property name="decimals">
+              <number>6</number>
+             </property>
+             <property name="minimum">
+              <double>-45.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>45.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="followCheckBox">
+           <property name="text">
+            <string>сбрасывать масштаб при изменении</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="buildHeatMapBtn">
+           <property name="text">
+            <string>Карта поверхности</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="doOptimizationButton">
+           <property name="text">
+            <string>Авто-поиск</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="partNameEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="placeholderText">
+         <string>название детали</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="2">
+       <widget class="MeasurementTreeWidget" name="radTree">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::InternalMove</enum>
+        </property>
+        <attribute name="headerCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string notr="true">ГРУППА</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ИЗМЕРЕНИЕ</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2">
+       <widget class="MeasurementTreeWidget" name="angleTree">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::InternalMove</enum>
+        </property>
+        <attribute name="headerCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string notr="true">ГРУППА</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ИЗМЕРЕНИЕ</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="partNameLabel">
+        <property name="text">
+         <string>Деталь:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QCustomPlot" name="heatmap" native="true"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionPAN"/>
+   <addaction name="actionScaleX"/>
+   <addaction name="actionScaleY"/>
+   <addaction name="actionResetScale"/>
+   <addaction name="separator"/>
+   <addaction name="actionLayFlat"/>
+   <addaction name="actionRST"/>
+   <addaction name="separator"/>
+   <addaction name="actionHorisontalDistance"/>
+   <addaction name="actionVerticalDistance"/>
+   <addaction name="actionDirectDistance"/>
+   <addaction name="actionMeanHeight"/>
+   <addaction name="separator"/>
+   <addaction name="actionDirectAngle"/>
+   <addaction name="actionHHorizonAngle"/>
+   <addaction name="actionVHorizonAngle"/>
+   <addaction name="separator"/>
+   <addaction name="actionRadius"/>
+   <addaction name="actionMultiRadius"/>
+   <addaction name="separator"/>
+   <addaction name="actionRMSE"/>
+   <addaction name="actionRadiusError"/>
+   <addaction name="separator"/>
+   <addaction name="actionAvgDiameter"/>
+  </widget>
+  <action name="actionPAN">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/pan.png</normaloff>:/icons/icons/pan.png</iconset>
+   </property>
+   <property name="text">
+    <string>Перемещение</string>
+   </property>
+  </action>
+  <action name="actionResetScale">
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/1:1.png</normaloff>:/icons/icons/1:1.png</iconset>
+   </property>
+   <property name="text">
+    <string>1:1</string>
+   </property>
+   <property name="toolTip">
+    <string>Сбросить масштаб</string>
+   </property>
+  </action>
+  <action name="actionScaleX">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/scale_x.png</normaloff>:/icons/icons/scale_x.png</iconset>
+   </property>
+   <property name="text">
+    <string>ScaleX</string>
+   </property>
+   <property name="toolTip">
+    <string>Масштабировать по горизонтали</string>
+   </property>
+  </action>
+  <action name="actionScaleY">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/scale_y.png</normaloff>:/icons/icons/scale_y.png</iconset>
+   </property>
+   <property name="text">
+    <string>ScaleY</string>
+   </property>
+   <property name="toolTip">
+    <string>Масштабировать по вертикали</string>
+   </property>
+  </action>
+  <action name="actionHorisontalDistance">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/hdist.png</normaloff>:/icons/icons/hdist.png</iconset>
+   </property>
+   <property name="text">
+    <string>|  -  |</string>
+   </property>
+   <property name="toolTip">
+    <string>Длина</string>
+   </property>
+  </action>
+  <action name="actionVerticalDistance">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/vdist.png</normaloff>:/icons/icons/vdist.png</iconset>
+   </property>
+   <property name="text">
+    <string>|  |  |</string>
+   </property>
+   <property name="toolTip">
+    <string>Высота</string>
+   </property>
+  </action>
+  <action name="actionLayFlat">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/flat.png</normaloff>:/icons/icons/flat.png</iconset>
+   </property>
+   <property name="text">
+    <string>FLAT</string>
+   </property>
+   <property name="toolTip">
+    <string>Уложить по горизонтали</string>
+   </property>
+  </action>
+  <action name="actionDirectDistance">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/ddist.png</normaloff>:/icons/icons/ddist.png</iconset>
+   </property>
+   <property name="text">
+    <string>|  /  |</string>
+   </property>
+   <property name="toolTip">
+    <string>Расстояние</string>
+   </property>
+  </action>
+  <action name="actionDirectAngle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/angle.png</normaloff>:/icons/icons/angle.png</iconset>
+   </property>
+   <property name="text">
+    <string>| \a/ |</string>
+   </property>
+   <property name="toolTip">
+    <string>Угол</string>
+   </property>
+  </action>
+  <action name="actionHHorizonAngle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/hangle.png</normaloff>:/icons/icons/hangle.png</iconset>
+   </property>
+   <property name="text">
+    <string>| /_ |</string>
+   </property>
+   <property name="toolTip">
+    <string>Угол к горизонтали</string>
+   </property>
+  </action>
+  <action name="actionVHorizonAngle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/vangle.png</normaloff>:/icons/icons/vangle.png</iconset>
+   </property>
+   <property name="text">
+    <string>| |/ |</string>
+   </property>
+   <property name="toolTip">
+    <string>Угол к вертикали</string>
+   </property>
+  </action>
+  <action name="actionRadius">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/rad.png</normaloff>:/icons/icons/rad.png</iconset>
+   </property>
+   <property name="text">
+    <string>| ) |</string>
+   </property>
+   <property name="toolTip">
+    <string>Радиус</string>
+   </property>
+  </action>
+  <action name="actionMultiRadius">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/radarc.png</normaloff>:/icons/icons/radarc.png</iconset>
+   </property>
+   <property name="text">
+    <string>| () |</string>
+   </property>
+   <property name="toolTip">
+    <string>Радиус по двум аркам</string>
+   </property>
+  </action>
+  <action name="actionRST">
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/reset.png</normaloff>:/icons/icons/reset.png</iconset>
+   </property>
+   <property name="text">
+    <string>RST</string>
+   </property>
+   <property name="toolTip">
+    <string>Сбросить изменения</string>
+   </property>
+  </action>
+  <action name="actionMeanHeight">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/mheight.png</normaloff>:/icons/icons/mheight.png</iconset>
+   </property>
+   <property name="text">
+    <string>|  =  |</string>
+   </property>
+   <property name="toolTip">
+    <string>Средняя высота</string>
+   </property>
+  </action>
+  <action name="actionRMSE">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/lineerr.png</normaloff>:/icons/icons/lineerr.png</iconset>
+   </property>
+   <property name="text">
+    <string>|  / _ |</string>
+   </property>
+   <property name="toolTip">
+    <string>Среднее отклонение от прямой</string>
+   </property>
+  </action>
+  <action name="actionRadiusError">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../icons.qrc">
+     <normaloff>:/icons/icons/raderr.png</normaloff>:/icons/icons/raderr.png</iconset>
+   </property>
+   <property name="text">
+    <string>| ) E|</string>
+   </property>
+   <property name="toolTip">
+    <string>Среднее отклонение от радиуса</string>
+   </property>
+  </action>
+  <action name="actionAvgDiameter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>AVGD</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">../qcustomplot/qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MeasurementTreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>contour/measurementtreewidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>

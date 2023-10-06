@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/mup.png</file>
+        <file>icons/mdown.png</file>
+        <file>icons/mupz.png</file>
+        <file>icons/mdownz.png</file>
+        <file>icons/mbwd.png</file>
+        <file>icons/mfwd.png</file>
+        <file>icons/mright.png</file>
+        <file>icons/mleft.png</file>
+        <file>icons/print.png</file>
+        <file>icons/open.png</file>
+        <file>icons/save.png</file>
+        <file>icons/select_z.png</file>
+        <file>icons/cutsel.png</file>
+        <file>icons/select.png</file>
+        <file>icons/radarc.png</file>
+        <file>icons/rad.png</file>
+        <file>icons/vangle.png</file>
+        <file>icons/hangle.png</file>
+        <file>icons/angle.png</file>
+        <file>icons/rline_s.png</file>
+        <file>icons/flat.png</file>
+        <file>icons/mheight.png</file>
+        <file>icons/ddist.png</file>
+        <file>icons/vdist.png</file>
+        <file>icons/hdist.png</file>
+        <file>icons/1:1.png</file>
+        <file>icons/pan.png</file>
+        <file>icons/rline.png</file>
+        <file>icons/pts.png</file>
+        <file>icons/reset.png</file>
+        <file>icons/scale_y.png</file>
+        <file>icons/scale_x.png</file>
+	<file>icons/raderr.png</file>
+       <file>icons/lineerr.png</file>
+    </qresource>
+</RCC>

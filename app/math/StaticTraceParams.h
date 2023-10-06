@@ -1,0 +1,5 @@
+#ifndef STATICTRACEPARAMS_H
+#define STATICTRACEPARAMS_H
+
+
+#endif
