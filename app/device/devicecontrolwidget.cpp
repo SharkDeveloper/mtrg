@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <QtMath>
+#include <QMessageBox>
 
 #include "device/settings.h"
 
@@ -238,6 +239,12 @@ void DeviceControlWidget::configerDeviceSignals()
         device_.moveTipDown();
     });
 
+    connect(ui->test, &QPushButton::clicked, this, [=](){
+        QMessageBox msg;
+        msg.setText("Привет, Владимир!");
+        msg.exec();
+    });
+
     QTimer *notification_timer = new QTimer();
     connect(notification_timer, &QTimer::timeout, this, [&]() {
         if (device_.running())
@@ -311,6 +318,7 @@ void DeviceControlWidget::configerDeviceSignals()
             ui->tipRaiseLimitCheckBox->hide();
             ui->pindownButton->hide();
             ui->userDefinedAxisStepCheckBox->hide();
+            ui->test->hide();
         }
         else
         {
@@ -325,6 +333,7 @@ void DeviceControlWidget::configerDeviceSignals()
             ui->tipRaiseLimitCheckBox->show();
             ui->pindownButton->show();
             ui->userDefinedAxisStepCheckBox->show();
+            ui->test->show();
         }
 
     });
